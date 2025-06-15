@@ -1,0 +1,12 @@
+body {
+    background-image: url('/static/images/3.jpg'); /* Set the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Fix the image in place while scrolling */
+    background-size: cover; /* Scale the image to cover the entire viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Ensure the height covers the viewport */
+    width: 100%; /* Ensure the width covers the viewport */
+}
+

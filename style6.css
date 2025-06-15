@@ -1,0 +1,22 @@
+
+h1{
+    color: blue;
+    
+}
+.container{
+    width: 90%;
+    height: 100%;
+
+    margin-top: 5vh;
+    border:0px solid ; padding:40px 40px;
+    /* -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75) ; */
+}
+*{
+    color:rgb(15, 1, 15);
+    /* font-size:small;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+
+

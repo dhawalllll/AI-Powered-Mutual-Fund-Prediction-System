@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund Recommendation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9f7f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            color: #4CAF50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin-top: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .form-group input[type="number"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input[type="number"]::-webkit-outer-spin-button,
+        .form-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .form-container .help-text {
+            font-size: 14px;
+            color: #888;
+            margin-top: 15px;
+        }
+
+        .form-container .help-text a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .form-container .help-text a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Mutual Fund Advisor</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="avg_returns">Average Historical Returns (%):</label>
+                <input id="avg_returns" type="number" step="0.01" name="avg_returns" required>
+            </div>
+
+            <div class="form-group">
+                <label for="volatility">Volatility (%):</label>
+                <input id="volatility" type="number" step="0.01" name="volatility" required>
+            </div>
+
+            <div class="form-group">
+                <label for="risk_adjusted_returns">Risk-Adjusted Returns:</label>
+                <input id="risk_adjusted_returns" type="number" step="0.01" name="risk_adjusted_returns" required>
+            </div>
+
+            <div class="form-group">
+                <label for="performance_index">Performance Index:</label>
+                <input id="performance_index" type="number" step="0.01" name="performance_index" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expense_ratio">Expense Ratio (%):</label>
+                <input id="expense_ratio" type="number" step="0.01" name="expense_ratio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating (1 to 5):</label>
+                <input type="number" step="1" min="1" max="5" name="rating" required>
+            </div>
+
+            <div class="form-group">
+                <button id="rating" type="submit">Get Values</button>
+            </div>
+
+            <div class="help-text">
+                <p>Need help? <a href="#">Contact Support</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

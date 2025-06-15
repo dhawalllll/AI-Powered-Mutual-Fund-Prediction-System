@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund Recommendations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            color: #4CAF50;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container h3, .container h4 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            width: 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .card .rank {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .button-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .no-recommendations {
+            font-size: 18px;
+            color: #f44336;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Top 3 Mutual Fund Recommendations</h1>
+    <div class="container">
+        <h3>Investment Horizon: {{ horizon }} Years</h3>
+        <h4>Risk Profile:
+        {% if risk_profile == 0 %}
+            Conservative
+        {% elif risk_profile == 1 %}
+            Balanced
+        {% else %}
+            Aggressive
+        {% endif %}
+        </h4>
+
+        {% if b %}
+            <div class="cards">
+                {% for item in b %}
+                    <div class="card">
+                        <h2><strong>Fund Name:</strong> {{ item.0 }}</h2>
+                        <p><strong>Predicted Returns:</strong> {{ item.1 }}%</p>
+                        <p class="rank"><strong>Rank:</strong> {{ item.2 }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-recommendations">No recommendations available for the selected criteria.</p>
+        {% endif %}
+    </div>
+
+    <div class="button-container">
+        <a href="/userhome/" class="button">Back to Home</a>
+    </div>
+
+</body>
+</html>
